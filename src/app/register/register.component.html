@@ -1,0 +1,61 @@
+<mat-card class="auth-card">
+    <mat-card>
+        <mat-card-header>
+            <h1>Signup form</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input class="login1" type="email" matInput placeholder="Input your email" [(ngModel)]="email">
+              </mat-form-field>
+
+             <mat-form-field class="full-width">
+                <mat-label>First name</mat-label>
+                <input class="login1" type="text" matInput placeholder="Input your name" [(ngModel)]="firstName">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Last name</mat-label>
+                <input class="login1" type="text" matInput placeholder="Input your last name" [(ngModel)]="lastName">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Phone</mat-label>
+                <input class="login1" type="tel" matInput placeholder="Input your phone number" [(ngModel)]="phone">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Adress</mat-label>
+                <input class="login1" type="text" matInput placeholder="Input your Adress" [(ngModel)]="adress">
+              </mat-form-field>
+
+
+
+              <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input class="login1" type="password" matInput placeholder="Input your password" [(ngModel)]="password">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Repeat Password</mat-label>
+                <input class="login1" type="password" matInput placeholder="Repeat your password" [(ngModel)]="repeatPassword">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Select favourite genre</mat-label>
+                <mat-select [disabled]="!genreList">
+                  <mat-option *ngFor="let gen of genreList" [value]="gen.name" >
+                    {{gen.name}}</mat-option>
+                 
+                </mat-select>
+              </mat-form-field>
+              
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="doSignup()">
+                <i class="fa-solid fa-right-to-bracket"></i> Signup now 
+            </button>
+            <a routerLink="/login" mat-button> <i class="fa-solid fa-arrow-up-right-from-square"></i> I already have an account</a>
+        </mat-card-actions>
+    </mat-card>    
+</mat-card>

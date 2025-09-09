@@ -1,0 +1,77 @@
+<div class="wrapper" *ngIf="dataSource.length > 0">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> <i class="fa-solid fa-clapperboard"></i> Title </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="movie-title">
+          <img class="movieposter" [src]="element.poster" alt="Movie Poster"/>
+       
+          <span>{{ element.title }}</span>
+      
+          
+        </div>
+      </td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="shortDescription">
+      <th mat-header-cell *matHeaderCellDef> <i class="fa-solid fa-file-lines"></i> Description </th>
+      <td mat-cell *matCellDef="let element"> {{ element.shortDescription || 'N/A' }} </td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="genre">
+      <th mat-header-cell *matHeaderCellDef> Genre </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngFor="let genre of element.movieGenres">
+          {{ genre.genre.name }}<span *ngIf="genre !== element.movieGenres[element.movieGenres.length - 1]">, </span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="runTime">
+      <th mat-header-cell *matHeaderCellDef> <i class="fa-solid fa-clock" class="runtime-size"></i> Runtime </th>
+      <td mat-cell *matCellDef="let element"> {{ element.runTime || 'N/A'  }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef class="date-all-size"> <i class="fa-solid fa-calendar-days"></i> Date </th>
+      <td mat-cell *matCellDef="let element" class="date-all-size"> {{ utils.formatDate(element.startDate) || 'N/A' }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> <i class="fa-solid fa-money-bill"></i>  Price </th>
+      <td mat-cell *matCellDef="let element"> 1000Rsd </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actors">
+      <th mat-header-cell *matHeaderCellDef class="actor-size"> <i class="fa-solid fa-masks-theater"></i> Actors </th>
+      <td mat-cell *matCellDef="let element" class="actor-size">
+        <ng-container *ngFor="let actor of element.movieActors" class="actor-size">
+          {{ actor.actor.name }}<span *ngIf="actor !== element.movieActors[element.movieActors.length - 1]">, </span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> <i class="fa-solid fa-location-arrow"></i> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-card-actions>
+          <button mat-button class="dugme1" [routerLink]="['/allmovies/'+element.movieId+'/movie']">
+            <i class="fa-solid fa-ticket"></i> Details
+          </button>
+        </mat-card-actions>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<app-loading *ngIf="!movies && !error" />

@@ -1,0 +1,34 @@
+<div class="wrapper-movie" *ngIf="movie">
+    
+      <div class="left-side">
+        <img class="slika" src="{{movie.poster}}" [alt]="movie.title"/>
+          <mat-card-actions class="right-right">
+            <button mat-button class="order-button" (click)="doOrder()" [routerLink]="['/user']">
+              <i class="fa-solid fa-ticket"></i> Kupi Kartu
+            </button>
+          </mat-card-actions>
+      </div>
+
+      <div class="right-side">
+        <div class="card-text">
+          <mat-card-content>
+            <h3>{{movie.title}}</h3>
+            <h3>Projection date - {{movie.startDate}}</h3>
+            <p>{{movie.description}}</p>
+            <p>Reditelj: {{movie.director.name}}</p>
+            <p>Zanr:</p>
+              <ul>
+                <li *ngFor="let genre of movie.movieGenres">{{genre.genre.name}}</li>
+              </ul>
+            <p>Glumci: </p>
+              <ul>
+                <li *ngFor="let actor of movie.movieActors">{{actor.actor.name}}</li>
+              </ul>
+            <p>Datum objavljivanja filma: {{utils.formatDate(movie.startDate)}}</p>
+              <div class="card-runtime">
+                <p>Trajanja filma: {{movie.runTime}} mins</p>
+              </div>
+          </mat-card-content>
+        </div>
+      </div>
+</div>

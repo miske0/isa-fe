@@ -1,0 +1,17 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0c9742;
+    color: white;
+}
+
+mat-toolbar a[mat-button] {
+  color: white
+}
+mat-toolbar button[mat-button] {
+  color: white
+}

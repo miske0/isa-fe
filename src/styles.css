@@ -1,0 +1,81 @@
+html,
+body {
+    height: 100%;   
+    background-color: #1e2124;
+    color: white;
+}
+
+button {
+  background: none;          
+  color: rgb(71, 203, 255);            
+  border: none;               
+  font-size: 14px;           
+  padding: 8px 16px;          
+  cursor: pointer;            
+  transition: color 0.3s;
+}
+
+a {
+    color: rgb(71, 203, 255);
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.example-card {
+    max-width: 400px;
+    max-height: 900px;
+    overflow: hidden;
+    border: 1px solid green;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+
+}
+
+.loading {
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    align-items: center;
+}
+
+.wrapper {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.auth-card {
+    max-width: 600px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.center-action{
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+

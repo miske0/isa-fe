@@ -1,0 +1,91 @@
+<div class="wrapper" *ngIf="user">
+
+  <mat-card class="user-card" appearance="outlined">
+    <mat-card-header>
+      <img mat-card-avatar class="example-header-image" [src]="['https://ui-avatars.com/api/?name='+user.email]">
+      <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card appearance="outlined" *ngIf="user!.orders.length == 0" class="no-order">
+    <mat-card-content>
+      <h1>You have no orders yet!</h1>
+      <p>To place an order visit <a routerLink="/search">Search page</a></p>
+    </mat-card-content>
+  </mat-card>
+
+  <div *ngIf="user!.orders.length > 0">
+    <div class="wrapper-expanded" *ngIf="user.orders">
+      <h1>Order list</h1>
+
+      <table mat-table [dataSource]="user.orders" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>
+            <i class="fa-solid fa-clapperboard"></i> Naslov filma
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>
+            <i class="fa-solid fa-info-circle"></i> Status
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="startDate">
+          <th mat-header-cell *matHeaderCellDef>
+            <i class="fa-solid fa-calendar-days"></i> Datum
+          </th>
+          <td mat-cell *matCellDef="let element">{{ utils.formatDate(element.startDate) }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="pricePerTicket">
+          <th mat-header-cell *matHeaderCellDef>
+            <i class="fa-solid fa-coins"></i> Cena karte
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.pricePerItem }} RSD</td>
+        </ng-container>
+
+        <ng-container matColumnDef="rating">
+          <th mat-header-cell *matHeaderCellDef>
+            <i class="fa-solid fa-star"></i> Ocena
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.rating == null">No RATING</div>
+            <div *ngIf="element.rating == true">Liked</div>
+            <div *ngIf="element.rating == false">Disliked</div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>
+            <i class="fa-solid fa-location-arrow"></i> Actions
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <a mat-button [routerLink]="['/home']">
+              <i class="fa-solid fa-up-right-from-square"></i> Details
+            </a>
+
+            <div *ngIf="element.status == 'ordered'">
+              <button type="button" mat-button (click)="doPay(element)">
+                <i class="fa-solid fa-cart-shopping"></i> Pay
+              </button>
+              <button type="button" mat-button (click)="doCancel(element)">
+                <i class="fa-solid fa-ban"></i> Cancel
+              </button>
+            </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+  </div>
+
+</div>

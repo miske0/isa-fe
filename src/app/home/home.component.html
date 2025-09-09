@@ -1,0 +1,43 @@
+<div *ngIf="error" class="container">
+  <mat-card class="loading" appearance="outlined" color="red">
+    <mat-card-content>
+      <h1>Oops, an error occured!</h1>
+      <p style="color: red;">{{error}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<app-loading *ngIf="!movies && !error"></app-loading>
+
+<div *ngIf="movies && !error" class="container">
+
+  <section class="welcome-section">
+    <mat-card appearance="outlined" class="welcome-card">
+      <mat-card-content>
+        <h1>Dobrodošli na <strong>YesMovies</strong>!</h1>
+        <p>
+          Uživajte u najnovijim filmskim hitovima po odličnim cenama. <br />
+          Naš bioskop pruža vrhunski doživljaj gledanja filmova — uz udobna sedišta,
+          čist zvuk i sjajnu atmosferu. Rezervišite svoju kartu danas!
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <div class="container">
+    <mat-card class="example-card" appearance="outlined" *ngFor="let movie of movies">
+      <img class="slika" [src]="movie.poster" [alt]="movie.title" />
+      <mat-card-content>
+        <h1>{{movie.title}}</h1>
+        <p>Movie Starts: {{utils.formatDate(movie.startDate)}}</p>
+        <p>{{movie.shortDescription}}</p>
+      </mat-card-content>
+      <mat-card-actions class="center-action">
+        <button class="text1" mat-button [routerLink]="['/allmovies/' + movie.movieId + '/movie']">
+          <i class="fa-solid fa-up-right-from-square"></i> Detaljnije
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

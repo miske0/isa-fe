@@ -1,0 +1,21 @@
+.slika {
+  width: 400px;
+  height: 400px;
+  object-fit: cover; 
+  display: block;
+  margin: 0 auto;
+}
+
+.welcome-card {
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+  background-color: #0c9742;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.text1 {
+  background-color: #0c9742;
+  color: white;
+}

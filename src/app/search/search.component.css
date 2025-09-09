@@ -1,0 +1,55 @@
+.date-size {
+  width: 150px;
+}
+
+.search-movies {
+  max-width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.search-table {
+  margin-left: 100px;
+  max-width: 400px;
+}
+
+.diff {
+  margin-bottom: 30px;
+}
+
+.search1 {
+  max-width: 500px;
+}
+
+.summary-text-cell {
+  max-width: 200px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.title-size {
+    max-width: 100px;
+}
+
+.runtime-size {
+    max-width: 50px;
+}
+
+.actions-size {
+  max-width: 50px;
+}
+
+.price-size {
+  max-width: 50px;
+}
+
+.createdat-size {
+  max-width: 50px;
+}
+
+.backgroundcolor{
+  background-color: #0c9742;
+}

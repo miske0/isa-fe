@@ -1,0 +1,10 @@
+.button-login {
+    margin-right: 10px;
+}
+
+.text-middle {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,41 @@
+.movie-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .movie-title span {
+    margin-right: 10px;  
+    margin-left: 10px;
+  }
+  
+  .movieposter {
+    width: 130px;
+    margin-left: -16px; 
+    height: auto; 
+  }
+
+  table th{
+    background-color: #0c9742;
+  }
+
+  .dugme1{
+    background-color: #0c9742;
+    border: none;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 8px;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .actor-size {
+    max-width: 250px;
+  }
+
+  .date-all-size {
+    max-width: 100px;
+  }
